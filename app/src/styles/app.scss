@@ -1,0 +1,14 @@
+.App{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    .title{
+        margin: 0;
+        color: hotpink;
+        font-family: 'Poppins', sans-serif;
+        font-size: 128px;
+        -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: hotpink;
+    }
+}
