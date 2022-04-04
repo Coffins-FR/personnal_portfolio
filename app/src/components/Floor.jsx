@@ -6,9 +6,8 @@ const Floor = (props) => {
     const texture = useTexture('/textures/sky.jpg');
     return (
         <mesh {...props} recieveShadow={true}>
-          <boxBufferGeometry args={[30,1,30]} />
+          <boxBufferGeometry args={[90,0,90]} />
           <meshPhysicalMaterial color='white' />
-          <galaxyShaderMaterial attach="material" uColor={"hotpink"} uTexture={texture}/>
         </mesh>
     )
 }

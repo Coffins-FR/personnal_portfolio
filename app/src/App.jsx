@@ -15,14 +15,14 @@ function App() {
   return (
     <div className="App">
       <Canvas
-       camera={{position: [0,0,120], fov: 70}}
+       camera={{position: [-30,10,-10], fov: 70}}
        shadows={true}
        className={"canvas"}
        >
          
         <ambientLight color={"white"} intensity={0.3} />
         <directionalLight intensity={0.5} />
-        <Model scale={0.1}  position={[0,1,0]}/>
+        <Model rotation={[-0.8, 0, 0]} scale={2}  position={[0,1,0]}/>
         <Floor/>
         <OrbitControls enableZoom={true} enablePan={false} /> 
       </Canvas>

@@ -5,7 +5,11 @@ import galaxyVertex from '../glsl/galaxyVertex.glsl';
 import * as THREE from 'three'
 
 const GalaxyShaderMaterial = shaderMaterial(
-    {uColor: new THREE.Color(0.0, 0.0, 0.0), uTexture: new THREE.Texture()},
+    {
+        uColor: new THREE.Color(0.0, 0.0, 0.0), 
+        uTexture: new THREE.Texture(),
+        u_time: { type: 'f', value: 0.0 }
+    },
     galaxyVertex,
     galaxyFragment
 )
