@@ -1,0 +1,15 @@
+
+.scroll-carousel {
+    background-color: transparent;
+}
+  
+.sticky-box {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+  
+.transform-box {
+    display: flex;
+    will-change: transform;
+}

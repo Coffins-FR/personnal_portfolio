@@ -1,6 +1,6 @@
-#define M_PI 3.14159265358979323846;
+#define M_PI 3.14159265358979323846
 
-uniform float u_time;
+uniform float time;
 uniform float progress;
 uniform sampler2D uTexture;
 uniform vec4 resolution;
@@ -146,10 +146,21 @@ float cnoise(vec4 P, vec4 rep){
 
 void main(){
     float diff = dot(vec3(1.), vNormal);
-    vec4 texture = texture2D(uTexture, vUv + 0.2*cnoise(vec4(vUv*20.0,u_time/10.0,0.), vec4(10.)));
-    gl_FragColor = vec4(vUv, 0.0, 1.);
+    float fresnel = dot(cameraPosition, vNormal);
+    float phi = acos(vNormal.y);
+    float angle = atan(vNormal.x, vNormal.z);
+
+    // fresnel = fresnel*fresnel*fresnel;
+    vec2 fakeUV = vec2(dot(vec3(1.), vNormal), dot(vec3(-1.,0.,1.), vNormal));
+    vec2 newFakeUV = vec2( (angle + M_PI)/(2.0*M_PI), phi/M_PI);
+
+    fakeUV = fract(fakeUV + vec2(time/40., time/20.));
+    vec4 texture = texture2D(uTexture, vUv + 0.2*cnoise(vec4(vUv*5.0,time/10.0,0.), vec4(10.)));
+    // gl_FragColor = vec4(vUv, 0.0, 1.);
     // gl_FragColor = vec4(vNormal, 1.);
     // gl_FragColor = vec4(abs(sin(diff*10.0)));
     gl_FragColor = texture;
+    // gl_FragColor = vec4(mix(vec3(1.0), texture.rgb, fresnel),1.);
+    // gl_FragColor = vec4(fakeUV, 0., 1.);
     
 }

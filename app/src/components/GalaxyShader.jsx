@@ -8,7 +8,7 @@ const GalaxyShaderMaterial = shaderMaterial(
     {
         uColor: new THREE.Color(0.0, 0.0, 0.0), 
         uTexture: new THREE.Texture(),
-        u_time: { type: 'f', value: 0.0 }
+        time: { type: 'f', value: 0.0 }
     },
     galaxyVertex,
     galaxyFragment
